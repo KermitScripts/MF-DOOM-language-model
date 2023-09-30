@@ -1,20 +1,15 @@
-Unlike everyone else the first thing I asked ChatGPT to do was to come up with a song in the style of rapper MF DOOM. I knew if it could do this then I really should be re-training as a joiner. Needless to say it did a bad job, this is what it came up with:
+I asked chatGPT to generate an MF DOOM inspired song and this is what it came up with. 
 I'm MF DOOM, the villainous one
 Hiding behind a metal mask, my face is never shown
 I spit rhymes like bullets, sharp and deadly
 Leaving my competition in the dust, already
-
-I'm a mastermind, a lyrical genius
-I don't follow trends, I set them, see this
-I'm a master of wordplay, my flow is untouchable
-I leave my foes in the dirt, they're not fit to battle
 
 I'm the king of the underground, no one can bring me down
 I reign supreme, I wear the crown
 I'm the doom bringer, the one and only
 I'm MF DOOM, the legendary MC
 
-Here is an example of the sort of word play MF DOOM is known for:
+Just to compare how bad this is, here is an example of the sort of word play MF DOOM is known for:
 ...what up?
 To all rappers, shut up.
 While you shutting up, keep a shirt on,
@@ -26,7 +21,10 @@ Let alone the preorders, that's counted off shipping sales,
 This one goes out to all my people skipping bail,
 Dipping jail, whipping tail, and sipping ale.
 
-As you can see ChatGPT is more than a long way so i thought I would try my luck by traning a GPT specifically on as many of his lyrics I can get my hands on. The script scrapeLysrics does what it says on the tin, scrape lyrics off the internet and put them into a text file, lyrics.txt contains all the lyrics if you want to skip straight to traning. 
+I went out to train my own GPT on lyrics from MF DOOM to see if I can do any better. I followed Anrej Karpathy's tutorial https://www.youtube.com/watch?v=kCc8FmEb1nY&t=6027s&ab_channel=AndrejKarpathy. 
 
-Discalimer:
-Obviosly I intend to not publish any AI songs based off of MF DOOM this was just a bit of fun, if anyone feels deeply offended I can just retrain the model on Drake lyrics. 
+This is the best I could do:
+
+
+If you want to try for yoursel,f the scrapeLyrics.py file scrapes the website https://www.songlyrics.com/mf-doom-lyrics/ for all the lyrics and puts them into the lyrics.txt file. Then it's just a case of running the gpt.py file. However, be aware this is impposible to run on the CPU, I suggest running it on google colab. 
+

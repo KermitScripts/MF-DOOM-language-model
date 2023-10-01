@@ -21,7 +21,7 @@ Let alone the preorders, that's counted off shipping sales,<br />
 This one goes out to all my people skipping bail,<br />
 Dipping jail, whipping tail, and sipping ale.<br />
 <br />
-I went out to train my own GPT on lyrics from MF DOOM to see if I can do any better. I followed Anrej Karpathy's tutorial https://www.youtube.com/watch?v=kCc8FmEb1nY&t=6027s&ab_channel=AndrejKarpathy. Sadly I do not have a graphics card so had to scale down the model a fair bit, it has 0.009825 parameters. As expected a model this small will only spit out garbage and this is exactly what happaned. The traning and validation plot can be found in figure_1.png.
+I went out to train my own GPT on lyrics from MF DOOM to see if I can do any better. I followed Andrej Karpathy's tutorial https://www.youtube.com/watch?v=kCc8FmEb1nY&t=6027s&ab_channel=AndrejKarpathy. Sadly I do not have a graphics card so had to scale down the model a fair bit, it has 0.009825 parameters. As expected a model this small will only spit out garbage and this is exactly what happaned. The traning and validation plot can be found in figure_1.png.
 <br />
 This is the best my model can do:<br />
 

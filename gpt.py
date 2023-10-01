@@ -1,17 +1,18 @@
 import torch
 import torch.nn as nn
+import matplotlib.pyplot as plt
 from torch.nn import functional as F
 
-batch_size = 64 
-block_size = 256
+batch_size = 32
+block_size = 8
 max_iters = 5000
-eval_interval = 500
+eval_interval = 100
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
 n_embd = 16 #384
-n_head = 6
-n_layer = 2  #6
+n_head = 8 
+n_layer = 2
 dropout = 0.2
 
 torch.manual_seed(1337)
@@ -55,6 +56,18 @@ def estimate_loss():
         out[split] = losses.mean()
     model.train()
     return out
+
+def draw_graph(training_loss, validation_loss, epochs):
+    plt.figure(figsize=(10, 6))
+    plt.plot(epochs, training_loss, label='Training Loss', marker='o')
+    plt.plot(epochs, validation_loss, label='Validation Loss', marker='x')
+    plt.title('Training and Validation Loss Over Epochs')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.grid(True)
+    
+    plt.show()
 
 class Head(nn.Module):
     """ one self-attention head"""
@@ -184,26 +197,31 @@ class GPTLanguageModel(nn.Module):
 
 model = GPTLanguageModel()
 m = model.to(device)
-# print the number of parameters in the model
+
 print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+training_loss = []
+validation_loss = []
+epochs = []
 
 for iter in range(max_iters):
-
     if iter % eval_interval == 0 or iter == max_iters - 1:
         losses = estimate_loss()
-        print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
-
+        training_loss.append(losses['train'])
+        validation_loss.append(losses['val'])
+        epochs.append(iter)
+        if iter % 500 == 0 or iter == max_iters - 1:
+            print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
     # sample a batch of data
     xb, yb = get_batch('train')
 
-    # evaluate the loss
     logits, loss = model(xb, yb)
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
 
+#draw_graph(training_loss, validation_loss, epochs)
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
 torch.save(model.state_dict(), 'model.pth')
 print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))

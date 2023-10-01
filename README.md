@@ -21,10 +21,25 @@ Let alone the preorders, that's counted off shipping sales,<br />
 This one goes out to all my people skipping bail,<br />
 Dipping jail, whipping tail, and sipping ale.<br />
 <br />
-I went out to train my own GPT on lyrics from MF DOOM to see if I can do any better. I followed Anrej Karpathy's tutorial https://www.youtube.com/watch?v=kCc8FmEb1nY&t=6027s&ab_channel=AndrejKarpathy. 
+I went out to train my own GPT on lyrics from MF DOOM to see if I can do any better. I followed Anrej Karpathy's tutorial https://www.youtube.com/watch?v=kCc8FmEb1nY&t=6027s&ab_channel=AndrejKarpathy. Sadly I do not have a graphics card so had to scale down the model from 6 layers to 2 and from 384 embeddings to 16. As expected a model this small will onl spit out garbage and this is exactly what happaned.
 <br />
-This is the best I could do:<br />
+This is the best my mmodel can do:<br />
 
-
+P.zered kiti geens yon you srio' I larvin't't hent C<br />
+"Eis rucke too take cool al there fom gow core oule I bis the camf mer<br />
+Lith Plil t aste ames and jud coflc cay<br />
+Gom pam nof cloms swinnedy<br />
+As whed y wig F Pou dor mfarat anke whith tar demininsts whon<br />
+<br />
+Wan swhonown fellor, thent, thel the chlick<br />
+Whe clit heatngulaks<br />
+Amatobuh t mil wint vait asch<br />
+I's a ttryo shom doot Reo he buall<br />
+I a pinge<br />
+To stot wit git icotssedes anin'sth avom, seast<br />
+Wis pikeress sther o deseade fick Re tictosh<br />
+om sa fop le<br />
+<br />
+<br />
 If you want to try for yoursel,f the scrapeLyrics.py file scrapes the website https://www.songlyrics.com/mf-doom-lyrics/ for all the lyrics and puts them into the lyrics.txt file. Then it's just a case of running the gpt.py file. However, be aware this is impposible to run on the CPU, I suggest running it on google colab. 
 
